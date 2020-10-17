@@ -3,8 +3,6 @@
 namespace Gerardojbaez\Laraplans;
 
 use Illuminate\Support\ServiceProvider;
-use Gerardojbaez\Laraplans\SubscriptionBuilder;
-use Gerardojbaez\Laraplans\SubscriptionResolver;
 use Gerardojbaez\Laraplans\Contracts\PlanInterface;
 use Gerardojbaez\Laraplans\Contracts\PlanFeatureInterface;
 use Gerardojbaez\Laraplans\Contracts\PlanSubscriptionInterface;
@@ -26,11 +24,11 @@ class LaraplansServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../database/migrations/' => database_path('migrations')
-        ], 'migrations');
+        ], 'laraplans-migrations');
 
         $this->publishes([
             __DIR__.'/../config/laraplans.php' => config_path('laraplans.php')
-        ], 'config');
+        ], 'laraplans-config');
 
         $this->publishes([
             __DIR__.'/../lang' => resource_path('lang/vendor/laraplans'),
